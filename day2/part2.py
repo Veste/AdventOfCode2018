@@ -60,6 +60,7 @@ print("".join(common_characters))'''
 #^ First solution. Was dumb. Didn't think properly. Misevaluated the cost as n^2 when it's nlog(n) (not counting file read).
 # Ended up just making a way worse one! Less code in the below one too!
 
+'''
 input_lines = None
 with open('input', 'r') as input_file:
 	input_lines = input_file.read().splitlines()
@@ -95,4 +96,37 @@ for line_index1 in range(num_lines):
 	#end for
 	if match_found: break
 #end for
+'''
+
+# version 3:
+input_lines = []
+with open('input') as input_file:
+	for line in input_file:
+		input_lines.append(line)
+
+l_1, l_2 = -1, -1
+for i in range(len(input_lines[0])):
+	line_map = {}
+	
+	for j in range(len(input_lines)):
+		input_lines_line = input_lines[j]
+		string_minus_i = input_lines_line[:i] + input_lines_line[i+1:]
+		if string_minus_i in line_map:
+			print("{} and {}".format(line_map[string_minus_i], j))
+			l_1 = line_map[string_minus_i]
+			l_2 = j
+			break
+		else:
+			line_map[string_minus_i] = j
+		# end if
+	# end for
+
+	if l_1 != -1:
+		break
+# end for
+
+non_mismatched_chars = [x for x, y in zip(input_lines[l_1], input_lines[l_2]) if x == y]
+print("".join(non_mismatched_chars))
+
+
 
