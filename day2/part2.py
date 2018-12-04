@@ -57,7 +57,7 @@ for one, two in zip(input_lines[index_1], input_lines[index_2]):
 		print("END MISMATCHED\n")
 #end for
 print("".join(common_characters))'''
-#^ First solution. Was dumb. Didn't think properly. Misevaluated the cost as n^2 when it's nlog(n) (not counting file read).
+#^ First solution. Was dumb. Didn't think properly.
 # Ended up just making a way worse one! Less code in the below one too!
 
 '''
