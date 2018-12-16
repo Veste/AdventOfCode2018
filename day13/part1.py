@@ -2,12 +2,14 @@ from collections import deque
 from enum import Enum
 import sys
 
+
 class Facing(Enum):
 	UP = 1
 	RIGHT = 2
 	DOWN = 3
 	LEFT = 4
 # end Facing
+
 
 class Cart:
 	def __init__(self, facing, location):
