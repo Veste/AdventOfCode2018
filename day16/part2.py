@@ -51,7 +51,7 @@ for s in samples_p:
         if s[1][0] in opcode_map:
             opcode_map[s[1][0]].add(opcode)
         else:
-            opcode_map[s[1][0]] = set([opcode])
+            opcode_map[s[1][0]] = {[opcode]}
         # end if
     # end for
 # end for
